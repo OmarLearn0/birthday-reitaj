@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الأمنيات ✨</title>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            line-height: 1.6;
+            direction: rtl; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .store-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.2em;
+        }
+
+        .wish-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 400px;
+        }
+
+        .wish-body {
+            padding: 30px;
+        }
+
+        .wish-container h3 {
+            color: #dc3545;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .wish-container textarea {
+            width: 95%;
+            height: 120px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 1em;
+        }
+        
+        .wish-container button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        
+        .wish-container button:hover {
+            background-color: #1e7e34;
+        }
+
+        #wish-status {
+            color: #28a745;
+            font-weight: bold;
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #28a745;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #d4edda;
+        }
+        
+        /* زر العودة للموقع الرئيسي */
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* تنسيق الرسالة عند وجود أمنية سابقة */
+        .saved-wish-message {
+            margin-top: 15px;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body onload="loadWish()">
+
+    <div class="wish-container">
+        <div class="store-header">
+             🛒 متجر الأمنيات لـ <span style="font-weight: 900;">ريتاج</span> 🛒
+        </div>
+        
+        <div class="wish-body">
+            <h3>✨ سجلي أمنيتك لـ <span style="color: #dc3545;">عمر</span> ✨</h3>
+            <p>أمنيَتُك هي سِرّ الهدية! اكتبيها هنا وسأعمل على تحقيقها:</p>
+            
+            <textarea id="retaj-wish" placeholder="اكتبي أمنيتك هنا..." maxlength="200" dir="rtl"></textarea>
+            
+            <button onclick="saveWish()">تسجيل الأمنية</button>
+            
+            <p id="wish-status">
+                تم تسجيل الأمنية بنجاح! شكراً لكِ، ونتمنى أن تتحقق قريباً. 💖
+            </p>
+            
+            <p id="saved-wish-display" class="saved-wish-message" style="display: none;">
+                لقد قمتِ بتسجيل الأمنية بالفعل: "<span id="wish-text-display"></span>"
+            </p>
+
+            <a href="index.html" class="back-button">↩️ العودة إلى صفحة عيد الميلاد</a>
+        </div>
+    </div>
+
+    <script>
+        const WISH_KEY = 'retaj_birthday_wish';
+        const wishTextarea = document.getElementById('retaj-wish');
+        const statusElement = document.getElementById('wish-status');
+        const wishButton = document.querySelector('.wish-container button');
+        const savedWishDisplay = document.getElementById('saved-wish-display');
+        const wishTextDisplay = document.getElementById('wish-text-display');
+        
+        // 1. دالة التحميل: تُنفذ عند تحميل الصفحة (onload)
+        function loadWish() {
+            const savedWish = localStorage.getItem(WISH_KEY);
+            if (savedWish) {
+                // إذا كانت هناك أمنية مسجلة
+                wishTextDisplay.textContent = savedWish;
+                savedWishDisplay.style.display = 'block';
+                
+                // إخفاء حقل الإدخال والزر لتجنب التسجيل المتكرر
+                wishTextarea.style.display = 'none';
+                wishButton.style.display = 'none';
+            } else {
+                 // إخفاء رسالة الحالة عند التحميل لأول مرة
+                statusElement.style.display = 'none';
+            }
+        }
+        
+        // 2. دالة الحفظ: تُنفذ عند الضغط على الزر
+        function saveWish() {
+            const wishText = wishTextarea.value.trim();
+            
+            if (wishText !== "") {
+                // حفظ الأمنية في التخزين المحلي
+                localStorage.setItem(WISH_KEY, wishText);
+                
+                // تحديث العرض
+                wishTextDisplay.textContent = wishText;
+                savedWishDisplay.style.display = 'block';
+                statusElement.style.display = 'block';
+                
+                // إخفاء العناصر لمرة واحدة
+                wishTextarea.style.display = 'none';
+                wishButton.style.display = 'none';
+                
+            } else {
+                alert("برجاء كتابة الأمنية أولاً يا ريتاج!");
+            }
+        }
+    </script>
+
+</body>
+</html>
