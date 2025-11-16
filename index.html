@@ -1,52 +1,63 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
+<html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيد ميلاد سعيد يا ريتاج! 🎉</title>
+    <title>عيد ميلاد سعيد يا ريتاج! ⚜️</title>
     
     <style>
-        /* التنسيقات العامة */
+        /* التنسيقات العامة والمحسّنة للموبايل */
         body {
-            font-family: 'Arial', sans-serif;
+            /* استخدام خط كلاسيكي (يمكن استبداله بخط عربي أنيق إذا أردت) */
+            font-family: 'Georgia', serif; 
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #F5F5F5; /* لون كريمي فاتح */
             color: #333;
             text-align: center;
-            line-height: 1.6;
+            line-height: 1.8;
             direction: rtl; 
             overflow-x: hidden; 
         }
 
-        /* تنسيق لتضخيم الأسماء في سطر واحد */
+        /* تنسيق لتضخيم الأسماء في سطر واحد (الذهبي الداكن) */
         .name-highlight {
             font-size: 1.3em; 
             font-weight: 900; 
-            color: #dc3545; 
+            color: #A87D32; /* ذهبي داكن وأنيق */
         }
         
         /* الهيدر */
         header {
-            background-color: #007bff; 
+            background-color: #333333; /* أسود داكن */
             color: white;
-            padding: 20px 0 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 25px 0 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #A87D32; /* خط ذهبي فاخر */
+        }
+
+        h1 {
+            font-size: 2.2em; 
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        
+        header p {
+            font-size: 1em;
+            margin-top: 10px;
         }
 
         /* قسم الصورة الشخصية */
         .profile-section {
-            padding: 30px 10px;
+            padding: 40px 10px;
             background-color: white;
         }
 
         .profile-img {
-            width: 200px; 
-            height: 200px;
+            width: 220px; 
+            height: 220px;
             border-radius: 50%; 
             object-fit: cover;
-            border: 4px solid #007bff; 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            border: 5px solid #333333; /* إطار أسود كلاسيكي */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); 
             display: block; 
             margin: 0 auto;
             transition: transform 0.3s ease; 
@@ -54,134 +65,147 @@
 
         /* تأثير التكبير عند المرور/اللمس */
         .profile-img:hover {
-            transform: scale(1.08); 
+            transform: scale(1.05); 
         }
 
         /* قسم العد التنازلي */
         .countdown-section {
-            background-color: #333;
-            color: white;
-            padding: 20px 10px;
+            background-color: #1a1a1a; /* أسود حالك */
+            color: #E0C792; /* ذهبي فاتح للعداد */
+            padding: 30px 10px;
+        }
+
+        .countdown-section h2 {
+            font-size: 1.4em;
+            color: #E0C792;
         }
 
         #countdown {
-            font-size: 2.5em; 
+            font-family: 'Times New Roman', Times, serif; /* خط رقمي كلاسيكي */
+            font-size: 3em; 
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
         }
         
         /* قسم الرسالة */
         .message-section {
             padding: 30px 15px;
-            background-color: #fffaf0; 
-            border-top: 2px solid #007bff;
+            background-color: #FFFFFF; 
+            border-top: 2px solid #E0C792; /* خط فاصل ذهبي */
         }
 
         .message-box {
             max-width: 100%;
             margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: right;
+        }
+        
+        .message-box h3 {
+            color: #A87D32; /* عنوان الرسالة بالذهبي */
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #E0C792;
+            padding-bottom: 10px;
         }
 
         /* **** قسم بطاقة الهدية (المتجر) **** */
         .gift-card-section {
             padding: 40px 15px;
-            background: linear-gradient(135deg, #ffc107, #ff9800); /* تدرج ألوان ذهبي */
-            color: #333;
+            background-color: #444444; /* رمادي غامق */
+            color: #FFFFFF;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-top: 5px solid #A87D32; /* تحديد ذهبي */
+            transition: background-color 0.3s ease;
         }
 
         .gift-card-section:hover {
-            transform: translateY(-5px); /* رفع البطاقة عند المرور بالماوس */
+            background-color: #555555;
         }
         
         .gift-card-section h3 {
             font-size: 1.8em;
             margin: 0 0 10px 0;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .gift-card-section p {
-             font-size: 1.1em;
-             font-weight: bold;
+            color: #E0C792; /* ذهبي فاتح */
+            text-shadow: none;
         }
 
         .gift-card-button {
-            background-color: #dc3545;
+            background-color: #A87D32;
             color: white;
-            border: none;
+            border: 2px solid white;
             padding: 12px 25px;
-            margin-top: 15px;
-            border-radius: 50px;
+            margin-top: 20px;
+            border-radius: 5px;
             font-size: 1.1em;
             font-weight: bold;
             display: inline-block;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s;
+        }
+
+        .gift-card-button:hover {
+            background-color: #795e2d;
         }
         
         /* الفوتر */
         footer {
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            font-size: 0.8em;
+            padding: 15px;
+            background-color: #333333;
+            color: #E0C792;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>عيد ميلاد سعيد يا أحلى <span class="name-highlight">ريتاج</span>!</h1>
-        <p>صفحة خاصة مُهداة من أخوكي <span class="name-highlight">عمر</span> بمناسبة ميلادك الـ 5 ديسمبر ❤️</p>
+        <h1>عيد ميلاد سعيد يا أحلى <span class="name-highlight" style="color: white;">ريتاج</span>!</h1>
+        <p>صفحة خاصة مُهداة من أخوكي <span class="name-highlight" style="color: white;">عمر</span> بمناسبة ميلادك الـ 5 ديسمبر ⚜️</p>
     </header>
 
     <div class="profile-section">
         <h2>يا زينة اللحظات الحلوة!</h2>
-        <img 
-            src="unnamed.jpg" 
-            alt="صورة ريتاج" 
-            class="profile-img">
-        <p style="margin-top: 20px;">الأخت التي لا تُعوض ✨</p>
+        <img src="unnamed.jpg" alt="صورة ريتاج" class="profile-img">
+        <p style="margin-top: 20px;">الأخت التي لا تُعوض</p>
     </div>
 
     <a href="retaj_wish.html" style="text-decoration: none;">
         <div class="gift-card-section">
-            <h3>🎁 إعلان هام! 🎁</h3>
-            <p>لديك فرصة للحصول على **أمنية خاصة** تتحقق بمجرد تسجيلها! (انا كداب بس اعملي نفسك مصدقه)</p>
-            <div class="gift-card-button">احصلي على هديتك الآن!</div>
+            <h3>📜 دعوة حصرية من متجر عمر 📜</h3>
+            <p style="color: #E0C792;">لديك فرصة للحصول على **أمنية خاصة** تتحقق بمجرد تسجيلها!</p>
+            <div class="gift-card-button">اطلب الهدية الآن</div>
         </div>
     </a>
 
     <div class="countdown-section">
         <h2 id="countdown-title">العد التنازلي ليوم 5 ديسمبر (يوم ميلادك الرسمي)</h2>
-        <p id="countdown">... جاري التحميل ...</p>
+        <p id="countdown">18 يوم و 15 ساعة و 55 دقيقة و 30 ثانية </p>
     </div>
 
     <div class="message-section">
         <div class="message-box">
             <h3>رسالة خاصة مني أنا (<span class="name-highlight" style="font-size: 1.2em;">عمر</span>)</h3>
             <p>
-                <strong><span class="name-highlight" style="font-size: 1.5em; display: block; text-align: right; color: #007bff;">ريتاج،</span></strong>
+                <strong><span class="name-highlight" style="font-size: 1.5em; display: block; text-align: right; color: #333333;">ريتاج،</span></strong>
             </p>
             <p>
-                أتمنى لكِ في عامكِ الجديد كل التوفيق والسعادة اللي تليق بجمال روحك، وأن تحققي كل أحلامك وطموحاتك. كوني دايماً مشرقة ومتميزة زي ما أنتِ.
+                أتمنى لكِ في عامكِ الجديد كل التوفيق والسعادة التي تليق بجمال روحك، وأن تحققي كل أحلامك وطموحاتك. كوني دايماً مشرقة ومتميزة كما أنتِ.
             </p>
-            <p style="font-style: italic; margin-top: 20px; text-align: center;">
+            <p style="font-style: italic; margin-top: 20px; text-align: center; color: #555;">
                 "الأخت هي قطعة من الأب ودفء من الأم وسند من الحياة."
             </p>
-            <p style="text-align: center;"><strong>بإخلاص ومحبة أبدية، عمر ❤️</strong></p>
+            <p style="text-align: center;"><strong>بإخلاص ومحبة أبدية، عمر ⚜️</strong></p>
         </div>
     </div>
 
     <footer>
-        &copy; تم عمل هذا الموقع خصيصًا لـ <span class="name-highlight" style="font-size: 1em;">ريتاج</span>. كل عام وأنتِ بقمة الخير والجمال!
+        © تم عمل هذا الموقع خصيصًا لـ <span class="name-highlight" style="font-size: 1em; color: #E0C792;">ريتاج</span>. كل عام وأنتِ بقمة الخير والجمال!
     </footer>
     
     <script>
@@ -212,5 +236,5 @@
         const countdownFunction = setInterval(updateCountdown, 1000);
     </script>
 
-</body>
-</html>
+
+</body></html>
